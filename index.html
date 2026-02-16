@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* STAR BACKGROUND */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-2;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:rgba(0,0,0,0.8);
+  position:sticky;
+  top:0;
+}
+nav h1{color:#00ffff;}
+nav ul{
+  list-style:none;
+  display:flex;
+}
+nav ul li{margin-left:20px;}
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+nav ul li a:hover{color:#00ffff;}
+
+/* HEADER */
+header{
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+header img{
+  width:170px;
+  border-radius:50%;
+  border:4px solid #00ffff;
+  box-shadow:0 0 20px #00ffff;
+}
+header h2{
+  margin-top:20px;
+  font-size:34px;
+}
+header p{
+  color:#ccc;
+}
+
+/* SECTIONS */
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+section h2{
+  font-size:32px;
+  margin-bottom:20px;
+  color:#00ffff;
+}
+
+/* SKILLS */
+.skills{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.skill{
+  background:#111;
+  padding:20px;
+  margin:10px;
+  border-radius:12px;
+  width:150px;
+  transition:0.4s;
+}
+.skill:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 15px #00ffff;
+}
+
+/* CONTACT */
+.contact-box{
+  max-width:500px;
+  margin:auto;
+  background:linear-gradient(145deg,#0a0a0a,#111);
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 0 30px rgba(0,255,255,0.2);
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s;
+}
+.contact-box.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.contact-box input,
+.contact-box textarea{
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  background:#000;
+  border:2px solid #222;
+  border-radius:10px;
+  color:#fff;
+}
+.contact-box input:focus,
+.contact-box textarea:focus{
+  border-color:#00ffff;
+  box-shadow:0 0 10px #00ffff;
+  outline:none;
+}
+.contact-box button{
+  width:100%;
+  padding:14px;
+  background:#00ffff;
+  border:none;
+  font-weight:bold;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.4s;
+}
+.contact-box button:hover{
+  box-shadow:0 0 20px #00ffff;
+  transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+  padding:20px;
+  text-align:center;
+  border-top:1px solid #222;
+  color:#888;
+}
+/* PROJECTS */
+.projects-section{
+    padding:80px 20px;
+    text-align:center;
+  }
+  
+  .projects-section h2{
+    color:#00ffff;
+    font-size:32px;
+    margin-bottom:40px;
+  }
+  
+  .projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+  }
+  
+  .project-card{
+    background:#111;
+    padding:25px;
+    border-radius:15px;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(0,255,255,0.15);
+  }
+  
+  .project-card h3{
+    margin-bottom:10px;
+  }
+  
+  .project-card p{
+    color:#ccc;
+    font-size:15px;
+    margin-bottom:15px;
+  }
+  
+  .project-card span{
+    color:#00ffff;
+    font-size:14px;
+  }
+  
+  /* HOVER EFFECT */
+  .project-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 25px #00ffff;
+  }
+  button{
+    padding:12px 28px;
+    margin-right:10px;
+    border:none;
+    border-radius: 30px;
+    background:white;
+    color:black;
+    font-size: 14px;
+    cursor:pointer;
+  }
+  
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<nav>
+  <h1>My Portfolio</h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#contact">Get In Touch</a></li>
+  </ul>
+</nav>
+
+<header id="home">
+  <img src="https://i.pinimg.com/736x/ae/a4/5e/aea45ef4e163993f0f9e1a27dce791d1.jpg" alt="Cartoon Student">
+  <h2>Hi, I'm a Shruti Sharma</h2>
+  
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>HELLO! I'm SHRUTI SHARMA.I am from Ambala City Haryana.I am passionate about learning new technologies and designing websites.My goal is to become a successful web Developer in the future.</p>
+</section>
+
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">MS Word</div>
+    <div class="skill">MS Excel</div>
+  </div>
+
+</section>
+<section id="projects" class="projects-section">
+    <h2>My Projects</h2>
+  
+    <div class="projects-container">
+  
+      <div class="project-card">
+        <h3>🌐 portfolio website</h3>
+        <p>Personal responsive portfolio website with animations.</p>
+        <span>HTML • CSS • </span>
+        <center>
+        <Button>View project</Button>
+      </senter>
+      </div>
+  
+      <div class="project-card">
+        <h3>landing page</h3>
+        <p>Modern landing page with product cards and UI effects.</p>
+        <span>HTML • CSS</span>
+        <center>
+        <button>View project</button>
+      </center>
+      </div>
+  
+      
+  
+    </div>
+  </section>
+  
+
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <div class="contact-box">
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Student Portfolio | Made with ❤️
+</footer>
+
+<script>
+/* STAR ANIMATION */
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let stars=[];
+for(let i=0;i<150;i++){
+  stars.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2,
+    d:Math.random()*0.5
+  });
+}
+
+function drawStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="white";
+  ctx.beginPath();
+  stars.forEach(s=>{
+    ctx.moveTo(s.x,s.y);
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    s.y+=s.d;
+    if(s.y>canvas.height){s.y=0;}
+  });
+  ctx.fill();
+}
+setInterval(drawStars,30);
+
+/* CONTACT ANIMATION */
+const contactBox=document.querySelector(".contact-box");
+window.addEventListener("scroll",()=>{
+  const pos=contactBox.getBoundingClientRect().top;
+  if(pos<window.innerHeight-100){
+    contactBox.classList.add("show");
+  }
+});
+</script>
+
+</body>
+</html>
